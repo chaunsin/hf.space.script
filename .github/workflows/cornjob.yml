@@ -10,8 +10,8 @@ on:
   pull_request:
     branches: [ "master" ]
   schedule:
-    # 每天北京时间 9 点执行 (GitHub 使用 UTC，要减 8 小时)
-    - cron: '0 1 * * *'  
+    # 执行时间
+    - cron: '*/5 * * * *'  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:

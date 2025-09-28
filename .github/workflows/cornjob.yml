@@ -38,7 +38,8 @@ jobs:
           IFS=',' read -ra ADDR <<< "$URLS"
           for url in "${ADDR[@]}"; do
             echo "Requesting $url ..."
-            curl -I --retry 3 --max-time 30 "$url"
+            # default GET Request
+            curl -X GET -I --retry 3 --max-time 30 "$url"
             echo ""
             sleep 1
           done

@@ -10,8 +10,8 @@ on:
   pull_request:
     branches: [ "master" ]
   schedule:
-    # 执行时间,如果不配置则默认北京时间上午10点执行
-    - cron: ${{ vars.CRONTAB || '0 2 * * *' }}
+    # 执行时间,北京时间上午10点执行，可根据情况修改。
+    - cron: '0 2 * * *'
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:

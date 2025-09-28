@@ -17,7 +17,7 @@
 
 ## 2️⃣ 设置环境变量
 
-找到并进入自己的hf.space.script仓库，按一下流程步骤操作:
+找到并进入自己的hf.space.script仓库，操作流程步骤:
 
 **Settings -> Actions -> Variables -> New repository variable**
 

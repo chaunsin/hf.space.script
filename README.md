@@ -6,27 +6,21 @@
 
 详情查看 👉 [Set a custom sleep time](https://huggingface.co/docs/hub/spaces-gpus#sleep-time)
 
----
-
 ## ⚠️ 声明
 
 本项目仅供学习与参考，请勿用于非法用途！如遇封号、数据丢失等情况，概不负责！！！
-
----
 
 ## 1️⃣ Fork 本仓库
 
 点击 **Fork** 按钮到自己的仓库：  
 ![1.png](image/1.png)
 
----
-
 ## 2️⃣ 设置环境变量
 
 路径：**Settings -> Actions -> Variables -> New repository variable**  
 ![4.png](image/2.png)
 
-### 🔗 `URLS`
+### `URLS`
 
 服务地址列表：
 
@@ -36,18 +30,12 @@
 
 👉 如果有多个访问地址，用英文逗号 `,` 隔开，切记不要使用中文符号。
 
----
+访问时间：
 
-### ⏰ `CRONTAB`
+定时任务默认请求访问时间默认值为 **UTC 02:00**，即北京时间 **10:00:00**
+每天执行一次。如要修改可在 [cornjob.yml](.github/workflows/cornjob.yml)中修改 `on.schedule.cron`值
 
-定时任务请求访问时间（可选）：
-
-- **必填**: ❌
-- **Name**: `CRONTAB`
-- **Value**: `0 2 * * *`
-    - 默认值为 **UTC 02:00**，即北京时间 **10:00:00** 每天执行一次。
-
-📌 Crontab 表达式参考: [crontab.guru](https://crontab.guru/)
+📌 Crontab 表达式编写工具: [crontab.guru](https://crontab.guru/)
 
 ## 🔍 查看运行结果
 

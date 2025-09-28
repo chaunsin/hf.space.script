@@ -58,6 +58,10 @@
     2. hf.space 服务是否正常
     3. 访问地址是否支持 `GET` 请求（如不支持，请修改 [cornjob.yml](.github/workflows/cornjob.yml) 中的 `curl` 方法）
 
+默认情况下每天执行一次，如果想临时运行，可以点击 **Run workflow** 按钮手动触发任务。
+
+![4.png](image/4.png)
+
 ## ❓ 常见问题
 
 **1. 为什么我的任务没有在预定时间执行？**  

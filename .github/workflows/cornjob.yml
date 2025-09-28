@@ -1,0 +1,38 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Daily Website Request
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  schedule:
+    # 每天北京时间 9 点执行 (GitHub 使用 UTC，要减 8 小时)
+    - cron: '0 1 * * *'  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+    debug_enabled:
+      description: "手动触发"
+      required: true
+      default: true
+
+jobs:
+  request:
+    runs-on: ubuntu-latest
+    env:
+      # 在这里配置你的地址列表，逗号分隔
+      URLS: ${{ vars.URLS}}
+    steps:
+      - name: Curl request to multiple URLs
+        run: |
+          IFS=',' read -ra ADDR <<< "$URLS"
+          for url in "${ADDR[@]}"; do
+            echo "Requesting $url ..."
+            curl -I --retry 3 --max-time 30 "$url"
+            echo ""
+          done
+

@@ -35,7 +35,7 @@
 
 访问时间：
 
-定时任务默认请求访问时间默认值为 **UTC 02:00**，即北京时间 **10:00:00**
+定时任务默认请求时间为 **UTC 02:00**，即北京时间 **10:00:00**
 每天执行一次。如要修改可在 [cornjob.yml](.github/workflows/cornjob.yml)中修改 `on.schedule.cron`值
 
 📌 Crontab 表达式编写工具: [crontab.guru](https://crontab.guru/)

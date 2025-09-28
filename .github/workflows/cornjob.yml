@@ -15,10 +15,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
-    debug_enabled:
-      description: "手动触发"
-      required: true
-      default: true
+      debug_enabled:
+        description: "手动触发"
+        required: true
+        default: true
 
 jobs:
   request:
@@ -27,6 +27,12 @@ jobs:
       # 在这里配置你的地址列表，逗号分隔
       URLS: ${{ vars.URLS}}
     steps:
+      - name: Validate URLS
+        run: |
+          if [ -z "$URLS" ]; then
+            echo "❌ ERROR: URLS is empty. Please configure vars.URLS in repository settings."
+            exit 1
+          fi
       - name: Curl request to multiple URLs
         run: |
           IFS=',' read -ra ADDR <<< "$URLS"
@@ -34,5 +40,6 @@ jobs:
             echo "Requesting $url ..."
             curl -I --retry 3 --max-time 30 "$url"
             echo ""
+            sleep 1
           done
 

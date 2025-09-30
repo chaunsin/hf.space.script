@@ -57,6 +57,7 @@
     1. 配置的访问地址是否正确
     2. hf.space 服务是否正常
     3. 访问地址是否支持 `GET` 请求（如不支持，请修改 [cornjob.yml](.github/workflows/cornjob.yml) 中的 `curl` 方法）
+    4. 如访问出现huggingface404错误页面，请检查服务可见性是否设置成了`私有`状态，请修改为`公开`
 
 默认情况下每天执行一次，如果想临时运行，可以点击 **Run workflow** 按钮手动触发任务。
 

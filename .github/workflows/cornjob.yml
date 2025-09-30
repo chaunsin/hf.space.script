@@ -36,11 +36,23 @@ jobs:
       - name: Curl request to multiple URLs
         run: |
           IFS=',' read -ra ADDR <<< "$URLS"
+          failed_requests=0
           for url in "${ADDR[@]}"; do
             echo "Requesting $url ..."
             # default GET Request
-            curl -X GET -I --retry 3 --max-time 30 "$url"
+            if ! curl -X GET -I --retry 3 --max-time 30 "$url"; then
+              echo "❌ Failed to request $url"
+              ((failed_requests++))
+            else
+              echo "✅ Successfully requested $url"
+            fi
             echo ""
             sleep 1
           done
-
+          
+          if [ $failed_requests -gt 0 ]; then
+            echo "❌ $failed_requests requests failed out of ${#ADDR[@]} total requests"
+            exit 1
+          else
+            echo "✅ All ${#ADDR[@]} requests succeeded"
+          fi
